@@ -9,7 +9,7 @@ export function Auth() {
     const handleOAuthLogin = async (provider: Provider) => {
         // You need to enable the third party auth you want in Authentication > Settings
         // Read more on: https://supabase.com/docs/guides/auth#third-party-logins
-        let { error } = await supabase.auth.signIn({ provider });
+        let { error } = await supabase.auth.signIn({ provider }, {redirectTo: window.location.href});
         if (error) console.log("Error: ", error.message);
     };
 
